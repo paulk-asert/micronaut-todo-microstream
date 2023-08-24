@@ -1,6 +1,7 @@
 package groovy.blog
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import groovy.transform.CompileStatic
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.TupleConstructor
 import io.micronaut.core.annotation.*
@@ -12,9 +13,11 @@ import java.time.LocalDate
 @Serdeable
 @TupleConstructor
 @EqualsAndHashCode
+@Introspected
+@CompileStatic
 @JsonIgnoreProperties(['done', 'scheduled'])
 class Todo {
-    @NonNull @NotBlank String title
+    @NotBlank String title
 
     @Nullable String description
 

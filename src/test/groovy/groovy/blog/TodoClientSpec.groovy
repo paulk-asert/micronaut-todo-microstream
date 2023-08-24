@@ -27,13 +27,13 @@ class TodoClientSpec extends BaseSpec {
             from todo in client.list()
             groupby todo.due
             orderby todo.due
-            select todo.due, agg(_g.stream().map(r -> r.todo.title).toList().toSorted()) as todos_due
+            select todo.due, list(todo.title) as todos_due
         }.toString() == '''
         +------------+------------------------------------------------------------------------+
         | due        | todos_due                                                              |
         +------------+------------------------------------------------------------------------+
-        | 2023-09-01 | [Create Todo class, Create TodoKey class, Create TodoStats class]      |
-        | 2023-09-02 | [Create repo classes, Create test classes, Declarative client example] |
+        | 2023-09-01 | [Create TodoKey class, Create Todo class, Create TodoStats class]      |
+        | 2023-09-02 | [Create test classes, Create repo classes, Declarative client example] |
         +------------+------------------------------------------------------------------------+
         '''.stripIndent()
     }

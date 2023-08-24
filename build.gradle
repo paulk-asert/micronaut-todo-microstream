@@ -17,6 +17,7 @@ configurations {
 }
 dependencies {
     implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("org.apache.groovy:groovy:4.0.14")
     implementation("io.micronaut.groovy:micronaut-runtime-groovy")
     implementation("io.micronaut.microstream:micronaut-microstream")
     implementation("io.micronaut.microstream:micronaut-microstream-annotations")
@@ -28,7 +29,7 @@ dependencies {
     compileOnly("io.micronaut.validation:micronaut-validation-processor")
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client")
-    testImplementation("org.apache.groovy:groovy-ginq")
+    testImplementation("org.apache.groovy:groovy-ginq:4.0.14")
     developmentOnly("io.micronaut.microstream:micronaut-microstream-rest")
     restClientGUI('one.microstream:microstream-storage-restclient-app:08.01.01-MS-GA') {
         transitive = false

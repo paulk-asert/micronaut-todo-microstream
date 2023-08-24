@@ -9,7 +9,7 @@ import jakarta.inject.Inject
 class ApplicationSpec extends Specification {
 
     @Inject
-    EmbeddedApplication<?> application
+    EmbeddedApplication application
 
     void 'test it works'() {
         expect:

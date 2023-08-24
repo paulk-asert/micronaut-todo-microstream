@@ -1,5 +1,6 @@
 package groovy.blog
 
+import groovy.transform.CompileStatic
 import io.micronaut.core.annotation.NonNull
 import io.micronaut.microstream.RootProvider
 import io.micronaut.microstream.annotations.StoreParams
@@ -11,6 +12,7 @@ import jakarta.validation.constraints.NotNull
 
 import java.time.LocalDate
 
+@CompileStatic
 @Singleton
 class TodoRepositoryImpl implements TodoRepository {
     private final RootProvider<TodoContainer> rootProvider

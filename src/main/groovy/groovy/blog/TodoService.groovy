@@ -1,9 +1,11 @@
 package groovy.blog
 
+import groovy.transform.CompileStatic
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
 import java.time.LocalDate
 
+@CompileStatic
 @Singleton
 class TodoService {
     @Inject TodoRepository repo
@@ -22,10 +24,10 @@ class TodoService {
 
     TodoStats stats() {
         Collection<Todo> all = repo.findAll()
-        int total = all.size()
-        int completed = all.count(t -> t.done)
-        int totalScheduled = all.count(t -> t.scheduled)
-        int completedOnSchedule = repo.findCompletedOnSchedule().size()
+        long total = all.size()
+        long completed = all.count(0L, t -> t.done)
+        long totalScheduled = all.count(0L, t -> t.scheduled)
+        long completedOnSchedule = repo.findCompletedOnSchedule().size()
         new TodoStats(total, completed, totalScheduled, completedOnSchedule)
     }
 
